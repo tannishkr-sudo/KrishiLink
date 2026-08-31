@@ -1,59 +1,52 @@
 # KrishiLink Product Requirements
 
 ## Original problem statement
-Rebuild the existing uploaded agricultural marketplace application using its HTML/CSS as the visual source, preserve existing functionality and Supabase configuration where present, keep every provided page reachable, and deliver a responsive, functioning application rather than a screenshot mockup.
+Rebuild the uploaded agricultural marketplace app (KrishiLink) as a complete, responsive React application, keep every page reachable, add interactive elements everywhere plus a voice message sender, and (originally) preserve the provided Supabase setup.
 
-## Architecture decisions
-- React 19 + React Router provide one reusable application shell and independently reachable workspace routes.
-- CSS variables and shared components establish the uploaded KrishiLink sage/light visual language across pages.
-- Lucide icons replace the uploaded Material Symbols dependency while keeping the same agricultural icon vocabulary.
-- The existing FastAPI/Mongo starter remains available at `/api`; no new backend data contract was invented because the uploaded source contained no Supabase client, tables, queries, or auth flow.
+## Latest user request (June 2026)
+"Make all the buttons interactive and usable and type box when needed and make the whole webpage and every page of it and UI design should be more beautiful."
+User choices: in-app state only (no persistence for now), add charts on Market Prices and Dashboard, make everything work and look great.
 
-## User personas
-- Farmers managing produce lots, stock levels, locations, and sales status.
-- Farmers discovering buyer requests, market signals, storage, transport, orders, and conversations.
-
-## Core requirements (static)
-- Shared sidebar/topbar navigation.
-- Home overview with stock, value, requests, delivery, inventory pulse, and activity.
-- Produce inventory with add, view, edit affordance, and mark-sold interaction.
-- Buyer request filters and request cards.
-- Reachable Marketplace, Market Prices, Storage, Transport, Orders, Messages, and Profile workspaces.
-- Desktop, tablet, and mobile responsive behavior with no horizontal overflow.
-- Unique descriptive `data-testid` attributes on interactive and critical flow elements.
+## Architecture
+- React 19 + React Router 7, CRA/craco, `@/` path alias.
+- Modular structure: `src/pages/*` (10 pages), `src/components/Shell.jsx`, `src/components/UIKit.jsx` (Modal, ConfirmDialog, Field, Toolbar, Menu, Toaster, Badge, Meter, Toggle), `src/store/AppStore.jsx` (single in-memory context store with all actions), `src/data/seed.js`, `src/styles/theme.css` (full design token system).
+- Charts via recharts. Icons via lucide-react. No backend/Supabase wiring — all data is in-memory React state.
 
 ## What's been implemented
 
-### 2026-03-08
-- Replaced the starter page with a KrishiLink application shell and responsive navigation.
-- Added Home, My Produce, Buyer Requests, and seven additional independently reachable workspaces.
-- Added working filter, add-produce, mark-sold, navigation, mobile menu, and request-detail interactions.
-- Recreated the two uploaded reference HTML screens as reusable React UI patterns.
-- Verified production build, public preview loading, desktop screenshots, route navigation, mobile overflow, and starter API endpoints.
+### 2026-03-08 / 2026-03-09
+- App shell, responsive navigation, all 10 workspaces reachable, browser voice recorder in Messages.
 
-### 2026-03-09
-- Expanded every main workspace with searchable lists, Overview/Activity/Saved tabs, row selection actions, quick actions, status messaging, and workspace-specific content.
-- Added independently reachable subroutes for listings, price forecasts, storage locations, transport schedules, order history, new messages, and profile settings.
-- Re-ran frontend and backend regression checks; all expanded routes and interactions passed with no UI, route, or console issues.
-- Added a Messages voice composer using the browser microphone, with recording timer, stop, audio preview, discard, send, and visible permission/support error handling.
-- Verified voice messaging flows and responsive layout on desktop and mobile.
+### 2026-06-01 (this session)
+- Refactored the bloated single-file `App.js` into modular pages, a shared UI kit, and a central store.
+- Removed every `window.prompt` / `alert` / `confirm`; replaced with in-app modals, validated forms and toast feedback.
+- Every button is now functional: topbar language menu, notifications dropdown (mark read / dismiss), profile menu, sidebar CTA & badges, crumbs.
+- My Produce: add / edit / view-lot / delete-confirm / mark-sold, status tabs, search.
+- Buyer Requests: working filter form + reset, sort chips, request detail modal with offer form that creates a real conversation.
+- Marketplace: tabs, search, save toggle, publish-listing modal, contact-buyer modal that opens a conversation.
+- Market Prices: crop chips, 7/30-day range, line + bar recharts, searchable price table, price alerts create/remove.
+- Storage: capacity meters, add-location modal, book-space modal that updates usage, delete confirm.
+- Transport: schedule-pickup modal, status progression (Scheduled → In transit → Delivered), trip details, cancel confirm.
+- Orders: computed stats, status tabs, search, order detail modal, invoice download toast, dispatch/deliver actions.
+- Messages: multi-conversation list with unread badges, text composer, voice recorder with waveform/timer/preview/discard/send, conversation options menu, new-conversation modal.
+- Profile: validated farm details form with save/reset, preferences toggles, language selector, profile summary card.
+- New premium design system: cream/deep-green palette, Outfit + DM Sans, grain overlay, glass topbar, layered shadows, pill buttons, micro-animations, staggered page fade-up, mobile-first responsive rules.
+- Verified by testing agent (iteration_4.json): 100% of requested frontend flows passed, zero console errors, zero native dialogs.
 
 ## Prioritized backlog
 
 ### P0
-- Connect actual Supabase client using the provided environment variables once the source project provides its schema, queries, and auth behavior.
-- Replace local in-memory dashboard, produce, and request data with Supabase reads/writes.
+- None open.
 
 ### P1
-- Add real authentication screens and protected route behavior if present in the source project or Supabase schema.
-- Flesh out Marketplace, Market Prices, Storage, Transport, Orders, Messages, and Profile with their corresponding persisted data models.
+- Persistence: wire Supabase (client + auth + tables) or the FastAPI/Mongo backend so produce, orders, messages and profile survive reloads.
+- Upload voice messages to storage instead of local blob URLs.
 
 ### P2
-- Add charts, map-based logistics views, richer order states, and notification preferences.
-- Add offline-friendly draft saving for produce listings.
+- Harvest planner calendar, notification centre page, offline draft saving for listings, map-based logistics view.
+- Multi-language content (currently the language switch only sets a label).
 
 ## Next tasks
-1. Obtain the original Supabase schema/query files and auth requirements.
-2. Add the Supabase client and map existing tables to the current UI models.
-3. Replace local mutation handlers with persisted operations and loading/error states.
-4. Expand each generic workspace into the full source page when its original HTML is supplied.
+1. Confirm persistence choice with the user (Supabase vs existing FastAPI/Mongo).
+2. Implement auth + protected routes once persistence is chosen.
+3. Replace store actions with API calls and add loading/error states.

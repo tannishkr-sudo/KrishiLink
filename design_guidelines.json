@@ -1,31 +1,131 @@
 {
-  "typography": {
-    "headings": "Cabinet Grotesk, Outfit, sans-serif",
-    "body": "Inter, DM Sans, sans-serif",
-    "mono": "JetBrains Mono, monospace"
+  "theme_context": {
+    "theme": "Light theme (Primary) with Organic & Earthy archetype",
+    "vibe": "Premium, trusted, clear, and operational. Blends Indian agriculture with high-end fintech SaaS precision."
   },
   "colors": {
-    "primary": "#3B82F6",
-    "background_dark": "#0A0F1D",
-    "surface_dark": "#131D31",
-    "border_dark": "#1E293B",
-    "text_primary": "#F8FAFC",
-    "text_secondary": "#94A3B8"
+    "background": "20 20% 97%",
+    "foreground": "150 20% 12%",
+    "card": "0 0% 100%",
+    "card-foreground": "150 20% 12%",
+    "popover": "0 0% 100%",
+    "primary": "145 35% 22%",
+    "primary-foreground": "0 0% 100%",
+    "secondary": "60 15% 92%",
+    "secondary-foreground": "150 20% 15%",
+    "accent": "15 75% 55%",
+    "accent-foreground": "0 0% 100%",
+    "muted": "150 10% 45%",
+    "border": "145 15% 88%",
+    "ring": "145 35% 22%",
+    "chart-1": "145 35% 22%",
+    "chart-2": "15 75% 55%",
+    "chart-3": "45 90% 55%",
+    "chart-4": "190 40% 45%",
+    "chart-5": "25 40% 45%"
+  },
+  "typography": {
+    "font_families": {
+      "headings": "'Outfit', 'Manrope', sans-serif",
+      "body": "'Satoshi', 'DM Sans', sans-serif",
+      "mono": "'JetBrains Mono', monospace"
+    },
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl font-bold tracking-tight text-foreground",
+      "h2": "text-2xl sm:text-3xl font-semibold tracking-tight text-foreground",
+      "h3": "text-xl font-medium tracking-tight text-foreground",
+      "h4": "text-lg font-medium text-foreground",
+      "body": "text-base leading-relaxed text-foreground",
+      "small": "text-sm text-muted-foreground",
+      "overline": "text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground"
+    }
+  },
+  "spacing_and_layout": {
+    "philosophy": "Generous Spacing, Mobile-First, Optical Alignment",
+    "containers": "max-w-7xl mx-auto px-6 md:px-12 lg:px-20",
+    "grid_system": "Bento High Density Grid for Dashboards: grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6",
+    "cards": "Internal padding p-6 or p-8 to prevent text collision. Use grid layout for internal card structures."
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 rounded-lg px-6 py-3 font-medium active:scale-[0.98]",
+      "secondary": "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border transition-all duration-200 rounded-lg px-6 py-3 font-medium active:scale-[0.98]",
+      "interactive_rules": "All buttons must have a subtle hover transform (-translate-y-px), clear focus states (focus:ring-2 focus:ring-offset-2), and disabled states (opacity-50 cursor-not-allowed)."
+    },
+    "cards": "bg-card border border-border/60 shadow-sm hover:shadow-md transition-shadow duration-300 rounded-xl",
+    "modals": "Use Shadcn Dialog. Backdrop must be backdrop-blur-md bg-black/40. Modal surface bg-card rounded-2xl shadow-2xl border border-white/20.",
+    "dropdowns": "Use Shadcn DropdownMenu. bg-popover rounded-xl shadow-lg border border-border/50. NEVER use transparent backgrounds.",
+    "inputs_and_forms": "Use Shadcn Input/Select. rounded-lg border-border focus:border-primary focus:ring-1 focus:ring-primary. Use clear labels (text-sm font-medium).",
+    "charts": "Use Shadcn/Recharts. Tooltips must match theme (bg-card border-border shadow-lg). Maintain responsive height (min-h-[300px]).",
+    "tables": "Dense rows for records. text-sm. border-b border-border/50. hover:bg-secondary/30 transition-colors."
   },
   "visual_enhancers": {
-    "glassmorphism": "backdrop-blur-xl bg-[#131D31]/80 border border-slate-700/50 shadow-2xl",
-    "card_style": "rounded-xl border border-slate-800 bg-[#131D31]/50 p-6 backdrop-blur-sm",
-    "glow": "shadow-[0_0_25px_rgba(59,130,246,0.15)]"
+    "shadows": "Ambient + direct shadows. shadow-[0_2px_10px_-3px_rgba(36,75,54,0.1)] for cards.",
+    "glassmorphism": "Used for sticky headers/topbar: backdrop-blur-xl bg-background/80 border-b border-border/40.",
+    "borders": "1px subtle solid borders (border-border). Avoid heavy borders.",
+    "status_indicators": "Red/Amber/Green dot indicators or soft badges (bg-green-100 text-green-800) for operational states (Harvesting, Transit, Pending)."
   },
-  "grids": {
-    "dashboard_bento": "grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-6"
+  "motion": {
+    "hover": "Subtle translation (-translate-y-[1px]) for interactive cards and buttons.",
+    "transitions": "transition-colors duration-200 ease-in-out, transition-transform duration-200 ease-in-out (DO NOT use transition-all).",
+    "page_load": "Staggered fade-up for dashboard cards using framer-motion or simple css animations."
   },
-  "image_urls": [
-    {
-      "category": "analytics_dashboard",
-      "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=srgb&fm=jpg&q=85",
-      "description": "High performance analytics dashboard visual preview"
+  "images": {
+    "profile_farmer": {
+      "url": "https://images.pexels.com/photos/32277759/pexels-photo-32277759.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Elderly Indian farmer smiling, for profile avatar or hero section",
+      "category": "Profile/Hero"
+    },
+    "marketplace_vegetables_1": {
+      "url": "https://images.pexels.com/photos/37321079/pexels-photo-37321079.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Colorful fresh vegetables for marketplace inventory cards",
+      "category": "Marketplace Listings"
+    },
+    "marketplace_vegetables_2": {
+      "url": "https://images.pexels.com/photos/38383098/pexels-photo-38383098.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Brinjals and cucumbers for specific listing examples",
+      "category": "Marketplace Listings"
+    },
+    "marketplace_vendor": {
+      "url": "https://images.pexels.com/photos/36998122/pexels-photo-36998122.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Indian man at a market, showcasing tradition",
+      "category": "Buyer/Seller Profiles"
     }
+  },
+  "instructions_to_main_agent": [
+    "Transform the flat CRA design into a premium, operational SaaS dashboard for Indian agriculture.",
+    "IMPLEMENT a global CSS variable system in src/index.css using the provided HSL color tokens (no hsl() wrapper in the variables, just numbers).",
+    "ALL components (buttons, dropdowns, cards) must have interactive states (hover, focus, active).",
+    "DO NOT use generic centered layouts. Use asymmetrical or functional Bento-style grids.",
+    "Use Shadcn UI components for complex interactions (Modals, Dropdowns, Datepickers) and ensure they are styled with the new theme.",
+    "Replace primitive prompt()/alert() calls with beautiful Shadcn Dialogs and Sonner Toasts.",
+    "Implement real Recharts for 'Market Prices' and 'Home Dashboard' using the defined chart color tokens.",
+    "Ensure 'My Produce' and 'Buyer Requests' use modular cards with clear visual hierarchy, status badges, and action buttons.",
+    "ALL interactive elements and key informational areas MUST include a `data-testid` attribute (e.g., data-testid='submit-produce-button').",
+    "Always apply optical alignment (e.g., button text and icons visually centered) and generous padding.",
+    "Add empty and loading states with soft muted colors and clear CTAs.",
+    "Use .js files (JSX), NOT .tsx files for all React components.",
+    "Never use fully transparent backgrounds for overlays, dropdowns, or sticky headers. Always use solid or glassmorphism (backdrop-blur + bg-opacity)."
   ],
-  "instructions_to_main_agent": "Implement all 20+ views in App.js with clean routing/tabbing, robust Supabase integration, testid attributes on all interactive elements, and strict adherence to the enterprise dark-first SaaS design system."
+  "accessibility": {
+    "contrast": "Ensure text over primary buttons or alert colors meets APCA minimums (WCAG AA).",
+    "focus": "All actionable items must have focus-visible ring.",
+    "motion": "Respect prefers-reduced-motion media query."
+  },
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. Make creative, distinctive frontends that surprise and delight.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "You MUST NOT apply universal transition. Eg: transition: all. This results in breaking transforms.",
+    "You MUST NOT center align the app container. Do not add .App { text-align: center; } in the css file.",
+    "Always use modern button styles like pill-shaped or sharp button with interaction animations.",
+    "NEVER use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯 etc for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations: separates good from extraordinary.",
+    "Use lucide-react for default icons. Prioritize pre-existing components from src/components/ui.",
+    "Use sonner for toasts located in /app/src/components/ui/sonner.tsx (if available) or create a js equivalent."
+  ]
 }
