@@ -6,12 +6,12 @@
     },
     "backend": {
       "root": "backend/",
-      "entrypoint": "main:app"
+      "entrypoint": "server:app"
     }
   },
   "rewrites": [
     {
-      "source": "/api/(.*)",
+      "source": "/api/:path*",
       "destination": {
         "service": "backend"
       }
