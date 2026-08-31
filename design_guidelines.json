@@ -1,0 +1,31 @@
+{
+  "typography": {
+    "headings": "Cabinet Grotesk, Outfit, sans-serif",
+    "body": "Inter, DM Sans, sans-serif",
+    "mono": "JetBrains Mono, monospace"
+  },
+  "colors": {
+    "primary": "#3B82F6",
+    "background_dark": "#0A0F1D",
+    "surface_dark": "#131D31",
+    "border_dark": "#1E293B",
+    "text_primary": "#F8FAFC",
+    "text_secondary": "#94A3B8"
+  },
+  "visual_enhancers": {
+    "glassmorphism": "backdrop-blur-xl bg-[#131D31]/80 border border-slate-700/50 shadow-2xl",
+    "card_style": "rounded-xl border border-slate-800 bg-[#131D31]/50 p-6 backdrop-blur-sm",
+    "glow": "shadow-[0_0_25px_rgba(59,130,246,0.15)]"
+  },
+  "grids": {
+    "dashboard_bento": "grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-6"
+  },
+  "image_urls": [
+    {
+      "category": "analytics_dashboard",
+      "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "description": "High performance analytics dashboard visual preview"
+    }
+  ],
+  "instructions_to_main_agent": "Implement all 20+ views in App.js with clean routing/tabbing, robust Supabase integration, testid attributes on all interactive elements, and strict adherence to the enterprise dark-first SaaS design system."
+}

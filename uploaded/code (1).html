@@ -1,0 +1,288 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Buyer Requests - KrishiLink</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#2e312d",
+                        "surface-container-low": "#f2f4ed",
+                        "on-secondary-fixed": "#2b1614",
+                        "tertiary-fixed": "#e5e2d8",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f8faf3",
+                        "secondary": "#755754",
+                        "surface-bright": "#f8faf3",
+                        "tertiary": "#605f56",
+                        "on-primary-fixed": "#131e0e",
+                        "surface-container-high": "#e7e9e2",
+                        "on-surface-variant": "#444841",
+                        "error": "#ba1a1a",
+                        "outline": "#757870",
+                        "primary-fixed": "#d9e7cd",
+                        "inverse-on-surface": "#eff2ea",
+                        "on-tertiary-fixed-variant": "#48473f",
+                        "on-tertiary-container": "#393931",
+                        "tertiary-container": "#a4a298",
+                        "surface-variant": "#e1e3dc",
+                        "on-secondary-container": "#795b58",
+                        "outline-variant": "#c5c8be",
+                        "primary": "#55624d",
+                        "surface": "#f8faf3",
+                        "primary-fixed-dim": "#bdcbb2",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#c9c7bc",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#55624d",
+                        "secondary-fixed": "#ffdad6",
+                        "secondary-container": "#fed7d2",
+                        "surface-dim": "#d8dbd4",
+                        "surface-container-highest": "#e1e3dc",
+                        "on-surface": "#191c18",
+                        "on-secondary-fixed-variant": "#5b403d",
+                        "on-background": "#191c18",
+                        "on-primary-container": "#2f3c29",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#e3beba",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#bdcbb2",
+                        "surface-container": "#ecefe8",
+                        "primary-container": "#98a68e",
+                        "on-primary-fixed-variant": "#3e4a37",
+                        "on-tertiary-fixed": "#1c1c15"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope", "sans-serif"],
+                        "display": ["Manrope", "sans-serif"],
+                        "body": ["Plus Jakarta Sans", "sans-serif"],
+                        "label": ["Plus Jakarta Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.surface');
+            color: theme('colors.on-surface');
+            font-family: theme('fontFamily.body');
+        }
+        .glass-panel {
+            background-color: rgba(248, 250, 243, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .shadow-ambient {
+            box-shadow: 0 10px 40px 0 rgba(85, 98, 77, 0.06);
+        }
+        .gradient-primary {
+            background: linear-gradient(135deg, theme('colors.primary'), theme('colors.primary-container'));
+        }
+        .ghost-border {
+            border: 1px solid rgba(197, 200, 190, 0.15);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col md:flex-row">
+<!-- TopNavBar (Mobile) -->
+<header class="md:hidden glass-panel fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20">
+<div class="font-headline font-bold text-2xl text-primary tracking-tight">KrishiLink</div>
+<div class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined text-2xl">language</span>
+<span class="material-symbols-outlined text-2xl">notifications</span>
+<span class="material-symbols-outlined text-2xl">account_circle</span>
+</div>
+</header>
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex flex-col pt-24 pb-8 h-full fixed left-0 top-0 w-72 z-40 bg-surface-container-low shadow-none">
+<div class="px-6 mb-8">
+<h1 class="font-headline font-extrabold text-xl text-primary">KrishiLink</h1>
+<p class="text-on-surface-variant text-sm mt-1">Agricultural Marketplace</p>
+</div>
+<div class="flex-1 overflow-y-auto px-2 space-y-2">
+<a class="flex items-center gap-4 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high rounded-xl transition-all duration-400 ease-in-out" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-body text-title-md font-medium">Home</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high rounded-xl transition-all duration-400 ease-in-out" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-body text-title-md font-medium">Marketplace</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high rounded-xl transition-all duration-400 ease-in-out" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="font-body text-title-md font-medium">Market Prices</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high rounded-xl transition-all duration-400 ease-in-out" href="#">
+<span class="material-symbols-outlined">agriculture</span>
+<span class="font-body text-title-md font-medium">My Produce</span>
+</a>
+<a class="flex items-center gap-4 bg-primary-container text-on-primary-container rounded-xl px-4 py-3 mx-2 ease-in-out transition-all duration-400" href="#">
+<span class="material-symbols-outlined">request_quote</span>
+<span class="font-body text-title-md font-medium">Buyer Requests</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high rounded-xl transition-all duration-400 ease-in-out" href="#">
+<span class="material-symbols-outlined">warehouse</span>
+<span class="font-body text-title-md font-medium">Storage</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high rounded-xl transition-all duration-400 ease-in-out" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-body text-title-md font-medium">Transport</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high rounded-xl transition-all duration-400 ease-in-out" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-body text-title-md font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high rounded-xl transition-all duration-400 ease-in-out" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-body text-title-md font-medium">Messages</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high rounded-xl transition-all duration-400 ease-in-out" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-body text-title-md font-medium">Profile</span>
+</a>
+</div>
+<div class="px-6 mt-4">
+<button class="w-full gradient-primary text-on-primary py-3 rounded-xl font-medium shadow-ambient transition-transform hover:scale-105 duration-400">
+                Post Produce
+            </button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 w-full md:ml-72 pt-28 md:pt-16 px-6 md:px-12 pb-24 md:pb-12 max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="mb-12">
+<h1 class="font-headline text-[3.5rem] leading-tight tracking-tight text-primary font-light mb-2">BUYER REQUESTS</h1>
+<p class="text-on-surface-variant text-lg">Connect with buyers looking for specific produce in your area.</p>
+</header>
+<!-- Filters Section (Glassmorphism styling) -->
+<section class="bg-surface-container-low rounded-xl p-6 mb-12 shadow-ambient ghost-border">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Filter: Crop -->
+<div class="flex flex-col">
+<label class="text-sm text-on-surface-variant mb-2 ml-2">Crop Type</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-lowest rounded-xl py-3 px-4 text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-fixed focus:bg-primary-fixed transition-colors duration-400 ghost-border border-0">
+<option>All Crops</option>
+<option>Tomato</option>
+<option>Onion</option>
+<option>Potato</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-3 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Filter: Quantity -->
+<div class="flex flex-col">
+<label class="text-sm text-on-surface-variant mb-2 ml-2">Minimum Quantity (kg)</label>
+<input class="w-full bg-surface-container-lowest rounded-xl py-3 px-4 text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-fixed focus:bg-primary-fixed transition-colors duration-400 ghost-border border-0 placeholder:text-outline-variant" placeholder="e.g. 100" type="number">
+</div>
+<!-- Filter: Distance -->
+<div class="flex flex-col">
+<label class="text-sm text-on-surface-variant mb-2 ml-2">Distance</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-lowest rounded-xl py-3 px-4 text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-fixed focus:bg-primary-fixed transition-colors duration-400 ghost-border border-0">
+<option>Within 50 km</option>
+<option>Within 20 km</option>
+<option>Within 100 km</option>
+<option>Anywhere</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-3 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<div class="mt-6 flex justify-end">
+<button class="bg-surface-container-highest text-on-surface px-6 py-2 rounded-xl font-medium hover:bg-surface-variant transition-colors duration-400 ghost-border flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">filter_list</span> Apply Filters
+                </button>
+</div>
+</section>
+<!-- Requests Grid -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Card 1 -->
+<article class="bg-surface-container-lowest rounded-xl p-6 shadow-ambient ghost-border relative overflow-hidden group hover:-translate-y-1 transition-transform duration-400">
+<!-- Verified Badge -->
+<div class="absolute top-6 right-6 flex items-center gap-1 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-semibold">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                    Verified Buyer
+                </div>
+<div class="flex items-start gap-4 mb-6">
+<div class="w-16 h-16 rounded-xl bg-surface-container-low flex items-center justify-center shrink-0">
+<img class="w-full h-full object-cover rounded-xl opacity-80 mix-blend-multiply" data-alt="A stylized, high-quality photograph of fresh, ripe red tomatoes on a wooden surface with soft, diffused natural lighting. The scene is bright and organic, fitting a clean, light-mode agricultural aesthetic with earthy greens and natural reds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc9Qng8nJlls_BoNlimrbsewZ6naL4TyNkBBA6M-JEqRejEAte1DDKmtQzsC1PIGVPOzeRoormyCeevdO00mVhNVLGoM3tyf9j4vA0gQUkc5zIBRJ7nZqWUEp0fFVMPqOLZQq-UE7SGwbcn30-IePpY140WLYxno5ATO3zkawI-rB3xa5s3NgFSiIHDPNvoPEDrQpC5w_EvoPy0cMGJmFwq0TKGeqIvIOlusAqAtYEkER4DTuZ_bk">
+</div>
+<div class="pt-1">
+<h3 class="font-headline text-xl text-primary font-bold">Need 500 kg Tomato</h3>
+<p class="text-on-surface-variant text-sm mt-1">Grade A Quality</p>
+</div>
+</div>
+<div class="space-y-3 mb-8">
+<div class="flex items-center gap-3 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">location_on</span>
+<span>Within 20 km (Delivery preferred)</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">schedule</span>
+<span>Posted 2 hours ago</span>
+</div>
+</div>
+<button class="w-full bg-surface-container-low text-primary font-semibold py-3 rounded-xl hover:bg-primary-container hover:text-on-primary-container transition-colors duration-400 flex items-center justify-center gap-2">
+                    View Request <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</article>
+<!-- Card 2 -->
+<article class="bg-surface-container-lowest rounded-xl p-6 shadow-ambient ghost-border relative overflow-hidden group hover:-translate-y-1 transition-transform duration-400">
+<div class="flex items-start gap-4 mb-6">
+<div class="w-16 h-16 rounded-xl bg-surface-container-low flex items-center justify-center shrink-0">
+<img class="w-full h-full object-cover rounded-xl opacity-80 mix-blend-multiply" data-alt="A macro, detailed shot of red onions piled in a woven basket. The lighting is soft and natural, emphasizing the purple and white textures of the onions. The mood is fresh and agricultural, fitting a serene, light-mode design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzvF9gqIpQg0prBfALzx4M2-3kzYjbAO85lNto6PiHSf0O5eFHQ7OG9ICtadRmh44KUrtKHtGxZI8JK5lyHCIv4Es6FvWcqwBrGipJu5fRhEOGTlAs0fKnoeodZ-LwPg_B5XpTNDIPAEtqh7BjGrdXe_fB-vltYm4M8hKQKFgveYszJyzcLkoQ1i_MRN7hpVrXnjsqjHGJaK5H-PTvgsjTIMpHmw841elAX3K7wolMluaSL4sQdhI">
+</div>
+<div class="pt-1">
+<h3 class="font-headline text-xl text-primary font-bold">Need 1,000 kg Onion</h3>
+<p class="text-on-surface-variant text-sm mt-1">Standard Size</p>
+</div>
+</div>
+<div class="space-y-3 mb-8">
+<div class="flex items-center gap-3 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">location_on</span>
+<span>Pickup from farm</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">schedule</span>
+<span>Posted 5 hours ago</span>
+</div>
+</div>
+<button class="w-full bg-surface-container-low text-primary font-semibold py-3 rounded-xl hover:bg-primary-container hover:text-on-primary-container transition-colors duration-400 flex items-center justify-center gap-2">
+                    View Request <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</article>
+</section>
+</main>
+<!-- Bottom Nav (Mobile Only) - Placeholder for structural completeness if needed, though often hidden on deeply nested pages, user prompt implies AppShell context -->
+<nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 glass-panel rounded-full px-6 py-3 flex items-center gap-8 shadow-ambient z-50">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">storefront</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary relative" href="#">
+<span class="material-symbols-outlined drop-shadow-[0_0_8px_rgba(85,98,77,0.5)]" style="font-variation-settings: 'FILL' 1;">request_quote</span>
+<div class="absolute -bottom-2 w-1 h-1 rounded-full bg-primary"></div>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+</a>
+</nav>
+</body></html>

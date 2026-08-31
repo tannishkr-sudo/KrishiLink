@@ -1,0 +1,283 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>KrishiLink - My Produce</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#2e312d",
+                        "surface-container-low": "#f2f4ed",
+                        "on-secondary-fixed": "#2b1614",
+                        "tertiary-fixed": "#e5e2d8",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f8faf3",
+                        "secondary": "#755754",
+                        "surface-bright": "#f8faf3",
+                        "tertiary": "#605f56",
+                        "on-primary-fixed": "#131e0e",
+                        "surface-container-high": "#e7e9e2",
+                        "on-surface-variant": "#444841",
+                        "error": "#ba1a1a",
+                        "outline": "#757870",
+                        "primary-fixed": "#d9e7cd",
+                        "inverse-on-surface": "#eff2ea",
+                        "on-tertiary-fixed-variant": "#48473f",
+                        "on-tertiary-container": "#393931",
+                        "tertiary-container": "#a4a298",
+                        "surface-variant": "#e1e3dc",
+                        "on-secondary-container": "#795b58",
+                        "outline-variant": "#c5c8be",
+                        "primary": "#55624d",
+                        "surface": "#f8faf3",
+                        "primary-fixed-dim": "#bdcbb2",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#c9c7bc",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#55624d",
+                        "secondary-fixed": "#ffdad6",
+                        "secondary-container": "#fed7d2",
+                        "surface-dim": "#d8dbd4",
+                        "surface-container-highest": "#e1e3dc",
+                        "on-surface": "#191c18",
+                        "on-secondary-fixed-variant": "#5b403d",
+                        "on-background": "#191c18",
+                        "on-primary-container": "#2f3c29",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#e3beba",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#bdcbb2",
+                        "surface-container": "#ecefe8",
+                        "primary-container": "#98a68e",
+                        "on-primary-fixed-variant": "#3e4a37",
+                        "on-tertiary-fixed": "#1c1c15"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "8": "2.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope", "sans-serif"],
+                        "display": ["Manrope", "sans-serif"],
+                        "body": ["Plus Jakarta Sans", "sans-serif"],
+                        "label": ["Plus Jakarta Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.surface');
+            color: theme('colors.on-surface');
+            font-family: theme('fontFamily.body');
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .ambient-shadow {
+            box-shadow: 0 4px 40px 0 rgba(85, 98, 77, 0.06);
+        }
+
+        .gradient-primary {
+            background: linear-gradient(135deg, theme('colors.primary'), theme('colors.primary-container'));
+        }
+    </style>
+</head>
+<body class="flex min-h-screen">
+<!-- SideNavBar (Web) / BottomNavBar (Mobile placeholder logic) -->
+<nav class="hidden md:flex flex-col bg-surface-container-low fixed left-0 top-0 h-full w-72 z-40 pt-24 pb-8 shadow-none transition-all duration-400 ease-in-out">
+<div class="px-6 mb-8">
+<h1 class="font-headline font-extrabold text-xl text-primary tracking-tight">KrishiLink</h1>
+<p class="font-body text-sm text-on-surface-variant mt-1">Agricultural Marketplace</p>
+</div>
+<div class="flex-1 overflow-y-auto overflow-x-hidden flex flex-col font-body text-title-md font-medium text-on-surface-variant space-y-1">
+<a class="flex items-center gap-4 px-4 py-3 mx-2 hover:bg-surface-container-high rounded-xl transition-all duration-400 ease-in-out" href="#">
+<span class="material-symbols-outlined">home</span>
+                Home
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 mx-2 hover:bg-surface-container-high rounded-xl transition-all duration-400 ease-in-out" href="#">
+<span class="material-symbols-outlined">storefront</span>
+                Marketplace
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 mx-2 hover:bg-surface-container-high rounded-xl transition-all duration-400 ease-in-out" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+                Market Prices
+            </a>
+<a class="flex items-center gap-4 bg-primary-container text-on-primary-container rounded-xl px-4 py-3 mx-2 transition-all duration-400 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">agriculture</span>
+                My Produce
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 mx-2 hover:bg-surface-container-high rounded-xl transition-all duration-400 ease-in-out" href="#">
+<span class="material-symbols-outlined">request_quote</span>
+                Buyer Requests
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 mx-2 hover:bg-surface-container-high rounded-xl transition-all duration-400 ease-in-out" href="#">
+<span class="material-symbols-outlined">warehouse</span>
+                Storage
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 mx-2 hover:bg-surface-container-high rounded-xl transition-all duration-400 ease-in-out" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+                Transport
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 mx-2 hover:bg-surface-container-high rounded-xl transition-all duration-400 ease-in-out" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+                Orders
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 mx-2 hover:bg-surface-container-high rounded-xl transition-all duration-400 ease-in-out" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+                Messages
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 mx-2 hover:bg-surface-container-high rounded-xl transition-all duration-400 ease-in-out" href="#">
+<span class="material-symbols-outlined">person</span>
+                Profile
+            </a>
+</div>
+<div class="px-6 mt-8">
+<button class="w-full gradient-primary text-on-primary font-medium py-3 rounded-xl hover:opacity-90 transition-opacity duration-400 ease-in-out flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add</span>
+                Post Produce
+            </button>
+</div>
+</nav>
+<!-- TopNavBar (Mobile only for this layout context, simplified representation) -->
+<header class="md:hidden flex justify-between items-center px-6 h-20 w-full fixed top-0 bg-surface/70 backdrop-blur-xl z-50 border-none shadow-none">
+<h1 class="font-headline font-bold text-2xl text-primary tracking-tight">KrishiLink</h1>
+<div class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined">notifications</span>
+<span class="material-symbols-outlined">account_circle</span>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 md:ml-72 pt-24 md:pt-12 px-6 md:px-12 pb-24 max-w-7xl mx-auto w-full">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
+<div class="space-y-2">
+<h2 class="font-headline text-4xl md:text-[3.5rem] text-primary tracking-tight leading-tight">My Produce</h2>
+<p class="font-body text-title-md text-on-surface-variant">Total Active Stock: <span class="font-bold text-primary">1,650 kg</span></p>
+</div>
+<button class="gradient-primary text-on-primary font-body font-medium px-6 py-3.5 rounded-full hover:shadow-lg hover:opacity-90 transition-all duration-400 ease-in-out flex items-center justify-center gap-2 self-start md:self-auto shrink-0">
+<span class="material-symbols-outlined">add</span>
+                Add Produce
+            </button>
+</div>
+<!-- Inventory Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Tomato Card -->
+<article class="bg-surface-container-lowest rounded-xl p-6 ambient-shadow flex flex-col border border-outline-variant/15 hover:border-primary-fixed/50 transition-colors duration-400 ease-in-out">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined">nutrition</span>
+</div>
+<div>
+<h3 class="font-headline font-bold text-xl text-primary">Tomato</h3>
+<p class="font-body text-sm text-on-surface-variant">Grade A • Organic</p>
+</div>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase">Available</span>
+</div>
+<div class="mb-8">
+<div class="text-3xl font-headline font-bold text-primary mb-1">800 <span class="text-lg font-medium text-on-surface-variant">kg</span></div>
+<p class="font-body text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                        Farm Storage 1
+                    </p>
+</div>
+<div class="mt-auto flex flex-wrap gap-3 pt-4 border-t border-surface-variant">
+<button class="flex-1 bg-surface-container text-primary font-medium py-2 px-4 rounded-lg hover:bg-surface-container-high transition-colors duration-400 text-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">visibility</span> View Lot
+                    </button>
+<button aria-label="Edit" class="bg-surface-container text-on-surface-variant font-medium py-2 px-3 rounded-lg hover:bg-surface-container-high transition-colors duration-400 text-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+<button class="w-full mt-3 text-secondary font-medium py-2 rounded-lg hover:bg-secondary-container/30 transition-colors duration-400 text-sm border border-secondary/20">
+                    Mark as Sold
+                </button>
+</article>
+<!-- Onion Card -->
+<article class="bg-surface-container-lowest rounded-xl p-6 ambient-shadow flex flex-col border border-outline-variant/15 hover:border-primary-fixed/50 transition-colors duration-400 ease-in-out">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container shrink-0">
+<span class="material-symbols-outlined">psychiatry</span>
+</div>
+<div>
+<h3 class="font-headline font-bold text-xl text-primary">Onion</h3>
+<p class="font-body text-sm text-on-surface-variant">Red • Standard</p>
+</div>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase">Available</span>
+</div>
+<div class="mb-8">
+<div class="text-3xl font-headline font-bold text-primary mb-1">500 <span class="text-lg font-medium text-on-surface-variant">kg</span></div>
+<p class="font-body text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                        Warehouse B
+                    </p>
+</div>
+<div class="mt-auto flex flex-wrap gap-3 pt-4 border-t border-surface-variant">
+<button class="flex-1 bg-surface-container text-primary font-medium py-2 px-4 rounded-lg hover:bg-surface-container-high transition-colors duration-400 text-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">visibility</span> View Lot
+                    </button>
+<button aria-label="Edit" class="bg-surface-container text-on-surface-variant font-medium py-2 px-3 rounded-lg hover:bg-surface-container-high transition-colors duration-400 text-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+<button class="w-full mt-3 text-secondary font-medium py-2 rounded-lg hover:bg-secondary-container/30 transition-colors duration-400 text-sm border border-secondary/20">
+                    Mark as Sold
+                </button>
+</article>
+<!-- Potato Card -->
+<article class="bg-surface-container-lowest rounded-xl p-6 ambient-shadow flex flex-col border border-outline-variant/15 hover:border-primary-fixed/50 transition-colors duration-400 ease-in-out">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant shrink-0">
+<span class="material-symbols-outlined">grain</span>
+</div>
+<div>
+<h3 class="font-headline font-bold text-xl text-primary">Potato</h3>
+<p class="font-body text-sm text-on-surface-variant">Russet • Premium</p>
+</div>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase">Available</span>
+</div>
+<div class="mb-8">
+<div class="text-3xl font-headline font-bold text-primary mb-1">350 <span class="text-lg font-medium text-on-surface-variant">kg</span></div>
+<p class="font-body text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                        Farm Storage 2
+                    </p>
+</div>
+<div class="mt-auto flex flex-wrap gap-3 pt-4 border-t border-surface-variant">
+<button class="flex-1 bg-surface-container text-primary font-medium py-2 px-4 rounded-lg hover:bg-surface-container-high transition-colors duration-400 text-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">visibility</span> View Lot
+                    </button>
+<button aria-label="Edit" class="bg-surface-container text-on-surface-variant font-medium py-2 px-3 rounded-lg hover:bg-surface-container-high transition-colors duration-400 text-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+<button class="w-full mt-3 text-secondary font-medium py-2 rounded-lg hover:bg-secondary-container/30 transition-colors duration-400 text-sm border border-secondary/20">
+                    Mark as Sold
+                </button>
+</article>
+</div>
+</main>
+</body></html>
