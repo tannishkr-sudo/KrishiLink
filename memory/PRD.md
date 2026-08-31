@@ -35,6 +35,8 @@ Rebuild the existing uploaded agricultural marketplace application using its HTM
 - Expanded every main workspace with searchable lists, Overview/Activity/Saved tabs, row selection actions, quick actions, status messaging, and workspace-specific content.
 - Added independently reachable subroutes for listings, price forecasts, storage locations, transport schedules, order history, new messages, and profile settings.
 - Re-ran frontend and backend regression checks; all expanded routes and interactions passed with no UI, route, or console issues.
+- Added a Messages voice composer using the browser microphone, with recording timer, stop, audio preview, discard, send, and visible permission/support error handling.
+- Verified voice messaging flows and responsive layout on desktop and mobile.
 
 ## Prioritized backlog
 
