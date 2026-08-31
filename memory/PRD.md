@@ -31,6 +31,11 @@ Rebuild the existing uploaded agricultural marketplace application using its HTM
 - Recreated the two uploaded reference HTML screens as reusable React UI patterns.
 - Verified production build, public preview loading, desktop screenshots, route navigation, mobile overflow, and starter API endpoints.
 
+### 2026-03-09
+- Expanded every main workspace with searchable lists, Overview/Activity/Saved tabs, row selection actions, quick actions, status messaging, and workspace-specific content.
+- Added independently reachable subroutes for listings, price forecasts, storage locations, transport schedules, order history, new messages, and profile settings.
+- Re-ran frontend and backend regression checks; all expanded routes and interactions passed with no UI, route, or console issues.
+
 ## Prioritized backlog
 
 ### P0
