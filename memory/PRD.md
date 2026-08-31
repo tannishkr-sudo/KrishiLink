@@ -50,3 +50,10 @@ User choices: in-app state only (no persistence for now), add charts on Market P
 1. Confirm persistence choice with the user (Supabase vs existing FastAPI/Mongo).
 2. Implement auth + protected routes once persistence is chosen.
 3. Replace store actions with API calls and add loading/error states.
+
+## 2026-06-01 — Vercel production build fix
+- Root cause: no lockfile committed for the frontend, so Vercel installs with npm; npm ignores yarn `resolutions` and hoisted ajv@6 to the root while `ajv-keywords@5` (via schema-utils → terser-webpack-plugin → react-scripts) requires ajv@8 → `Cannot find module 'ajv/dist/compile/codegen'` and `craco build` exit 1.
+- Fix (package.json only): devDependencies `ajv@8.17.1`, `ajv-keywords@5.1.0` and npm `overrides: { "ajv-keywords": { "ajv": "8.17.1" } }`. React stayed at 19.0.0, no architecture or app-code changes.
+- Verified by testing agent (iteration_5.json): clean `npm install --legacy-peer-deps` + `CI=true NODE_ENV=production npm run build` exits 0 ("Compiled successfully"), local yarn build still passes, all 10 pages regress clean with 0 console errors.
+- Note: if `ajv-keywords` is upgraded later, keep the `overrides.ajv-keywords.ajv` major in sync.
+- Not changed (optional follow-up): no `vercel.json` rewrite rule exists, so direct deep links like /produce will 404 on Vercel until a SPA rewrite (`{"rewrites":[{"source":"/(.*)","destination":"/index.html"}]}`) is added.
